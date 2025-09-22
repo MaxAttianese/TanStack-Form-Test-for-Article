@@ -1,81 +1,63 @@
 ✅ BasicForm: Basic User Profile
-Campi:
+Fields:
 
 First Name (text, required)
-
 Last Name (text, required)
-
 Email (email, required)
-
 Password (password, min length)
 
-Caratteristiche:
+Features:
 
-Validazione sincronizzata (es. required, minLength)
-
+Synchronized validation (e.g., required, minLength)
 Submit + reset
+Show values in console on submit
 
-Mostra i valori in console alla submit
+Technical goal:
 
-Obiettivo tecnico:
-
-register, handleSubmit, validazioni base
+register, handleSubmit, basic validations
 
 ✅ AdvancedForm: Advanced User Profile
-Stessi campi del Basic, + questi extra:
+Same fields as Basic, + these extras:
 
 Phone Number (optional, custom validation)
-
 Address (nested: Street, City, ZIP, Country)
-
-Skills (dynamic array — aggiunta/rimozione campi)
-
-Avatar Upload (file upload con anteprima)
-
+Skills (dynamic array — add/remove fields)
+Avatar Upload (file upload with preview)
 Bio (textarea, max length)
-
 Social Links (object: LinkedIn, GitHub, Twitter)
+Username (async check — e.g., already in use)
 
-Username (async check — es. già in uso)
+Extra Features:
 
-Caratteristiche extra:
-
-useFieldArray per skills
-
-watch per mostrare campi condizionali (es. se ha LinkedIn)
-
-Controller per campi custom (es. file, select)
-
-Validazione con Zod/Yup
-
+useFieldArray for skills
+watch to show conditional fields (e.g., if LinkedIn exists)
+Controller for custom fields (e.g., file, select)
+Validation with Zod/Yup
 Devtools integration
 
+In case of double nesting in Advanced:
 
-
-nel caso di doppio nesting dell Advanced
 interface CompanyAddress {
-  street: string;
-  city: string;
-  country: string;
+street: string;
+city: string;
+country: string;
 }
 
 interface WorkExperience {
-  jobTitle: string;
-  company: {
-    name: string;
-    address: CompanyAddress;
-  };
-  startDate: string;
-  endDate?: string;
+jobTitle: string;
+company: {
+name: string;
+address: CompanyAddress;
+};
+startDate: string;
+endDate?: string;
 }
 
 interface AdvancedProfile {
-  // ...campi precedenti...
-  workExperience: WorkExperience[];
+// ...previous fields...
+workExperience: WorkExperience[];
 }
 
-
-
-
 https://github.com/Balastrong/tanstack-form-demo/blob/07-form-composition/src/components/UserForm.tsx
+
 https://www.youtube.com/watch?v=YJ3rW85fnKo
