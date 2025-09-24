@@ -1,9 +1,9 @@
 import { useForm } from "@tanstack/react-form";
 import React, { useState } from "react";
 import * as z from "zod";
-import { FieldInfo } from "../../components/fieldInfo";
-import { PageLayout } from "../../components/pageLayout";
-import { Result } from "../../components/result";
+import { FieldInfo } from "../components/field-info";
+import { PageLayout } from "../components/page-layout";
+import { Result } from "../components/result";
 
 // Define the shape of our user data
 export type BasicUser = {

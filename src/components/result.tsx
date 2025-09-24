@@ -1,5 +1,5 @@
-import type { AdvancedUser } from "../../models/advancedUsers";
-import type { BasicUser } from "../../models/basicUsers";
+import type { AdvancedUser } from "../models/advanced-users";
+import type { BasicUser } from "../pages/basic-form";
 
 type ResultProps = {
   user: BasicUser | AdvancedUser | null;

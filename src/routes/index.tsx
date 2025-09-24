@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "../layout";
 import { Homepage } from "../pages/homepage";
-import { BasicForm } from "../pages/basicForm";
-import { AdvancedForm } from "../pages/advancedForm";
+import { BasicForm } from "../pages/basic-form";
+import { AdvancedForm } from "../pages/advanced-form";
 
 export const router = createBrowserRouter([
   {

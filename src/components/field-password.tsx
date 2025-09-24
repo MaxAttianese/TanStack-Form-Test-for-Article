@@ -1,11 +1,12 @@
-import { useFieldContext } from "..";
-import { FieldErrors } from "../fieldErrors";
+import { useFieldContext } from ".";
+import { FieldErrors } from "./field-errors";
 
-type FieldNumberProps = {
+type FieldPasswordProps = {
   label: string;
+  isPassword?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const FieldNumber = ({ label, ...inputProps }: FieldNumberProps) => {
+export const FieldPassword = ({ label, ...inputProps }: FieldPasswordProps) => {
   const field = useFieldContext<string>();
 
   return (
@@ -21,16 +22,17 @@ export const FieldNumber = ({ label, ...inputProps }: FieldNumberProps) => {
       <input
         id={field.name}
         name={field.name}
-        type="number"
+        type="password"
         className={`${
           (field.form.state.isSubmitted || field.state.meta.isTouched) &&
           field.state.meta.errors.length > 0
             ? "error"
             : ""
         }`}
-        value={field.state.value}
+        value={field.state.value ?? ""}
         onBlur={field.handleBlur}
         onChange={(e) => field.handleChange(e.target.value)}
+        autoComplete="current-password"
         {...inputProps}
       />
     </div>

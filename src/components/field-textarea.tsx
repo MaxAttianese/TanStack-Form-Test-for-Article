@@ -1,12 +1,11 @@
-import { useFieldContext } from "..";
-import { FieldErrors } from "../fieldErrors";
+import { useFieldContext } from ".";
+import { FieldErrors } from "./field-errors";
 
-type FieldPasswordProps = {
+type FieldTextAreaProps = {
   label: string;
-  isPassword?: boolean;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+} & React.InputHTMLAttributes<HTMLTextAreaElement>;
 
-export const FieldPassword = ({ label, ...inputProps }: FieldPasswordProps) => {
+export const FieldTextArea = ({ label, ...inputProps }: FieldTextAreaProps) => {
   const field = useFieldContext<string>();
 
   return (
@@ -19,22 +18,20 @@ export const FieldPassword = ({ label, ...inputProps }: FieldPasswordProps) => {
           <FieldErrors meta={field.state.meta} />
         ) : null}
       </div>
-      <input
+      <textarea
         id={field.name}
         name={field.name}
-        type="password"
         className={`${
           (field.form.state.isSubmitted || field.state.meta.isTouched) &&
           field.state.meta.errors.length > 0
             ? "error"
             : ""
         }`}
-        value={field.state.value ?? ""}
+        value={field.state.value}
         onBlur={field.handleBlur}
         onChange={(e) => field.handleChange(e.target.value)}
-        autoComplete="current-password"
         {...inputProps}
-      />
+      ></textarea>
     </div>
   );
 };

@@ -1,16 +1,11 @@
-import { useFieldContext } from "..";
-import { FieldErrors } from "../fieldErrors";
+import { useFieldContext } from ".";
+import { FieldErrors } from "./field-errors";
 
-type FieldDateProps = {
+type FieldTextProps = {
   label: string;
-  isPassword?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const FieldDate = ({
-  label,
-  isPassword = false,
-  ...inputProps
-}: FieldDateProps) => {
+export const FieldText = ({ label, ...inputProps }: FieldTextProps) => {
   const field = useFieldContext<string>();
 
   return (
@@ -26,7 +21,6 @@ export const FieldDate = ({
       <input
         id={field.name}
         name={field.name}
-        type="date"
         className={`${
           (field.form.state.isSubmitted || field.state.meta.isTouched) &&
           field.state.meta.errors.length > 0
@@ -36,7 +30,7 @@ export const FieldDate = ({
         value={field.state.value ?? ""}
         onBlur={field.handleBlur}
         onChange={(e) => field.handleChange(e.target.value)}
-        autoComplete={isPassword ? "current-password" : ""}
+        autoComplete=""
         {...inputProps}
       />
     </div>

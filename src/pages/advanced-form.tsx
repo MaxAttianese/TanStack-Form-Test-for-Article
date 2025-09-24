@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { useAppForm } from "../../components/form";
-import { Toggle } from "../../components/form/toggle";
-import { PageLayout } from "../../components/pageLayout";
-import { Result } from "../../components/result";
+
+import { Toggle } from "../components/toggle";
+import { PageLayout } from "../components/page-layout";
+import { Result } from "../components/result";
 import {
   advancedUserSchema,
   defaultAdvancedUser,
   type AdvancedUser,
-} from "../../models/advancedUsers";
+} from "../models/advanced-users";
+import { useAppForm } from "../components";
 
 export const AdvancedForm = () => {
   // State to store the submitted user

@@ -1,5 +1,5 @@
 import { useStore } from "@tanstack/react-form";
-import { useFormContext } from "..";
+import { useFormContext } from ".";
 
 export const ResetButton = () => {
   const form = useFormContext();

@@ -66,4 +66,108 @@ export default tseslint.config([
     },
   },
 ])
+
 ```
+# 📋 TanStack Form Playground
+
+Practical examples of **forms in React** using [TanStack Form](https://tanstack.com/form/latest/docs/overview).  
+The project includes two main forms:
+
+- ✅ **BasicForm** — Simple user profile  
+- ✅ **AdvancedForm** — Advanced user profile with nested fields, validations, and dynamic features  
+
+---
+
+## 🚀 Installation
+
+Clone the repo and install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## ▶️ Run the project
+
+Start development mode:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📝 BasicForm: Basic User Profile
+
+### 🔑 Fields
+- First Name → text (required)
+- Last Name → text (required)
+- Email → email (required)
+- Password → password (min length)
+
+### ⚡ Features
+- Synchronized validations (required, minLength)
+- Submit and Reset buttons
+- Logs values to console on submit
+
+### 🎯 Technical goals
+- Usage of register
+- Handling handleSubmit
+- Basic validations
+
+---
+
+## 📝 AdvancedForm: Advanced User Profile
+
+### 🔑 Additional Fields
+- Phone Number → optional, with custom validation
+- Address → nested object: Street, City, ZIP, Country
+- Skills → dynamic array (add/remove with useFieldArray)
+- Avatar Upload → file upload with preview (Controller)
+- Bio → textarea, with maxLength
+- Social Links → object: LinkedIn, GitHub, Twitter
+- Username → async validation (check if already in use)
+
+### ⚡ Extra Features
+- useFieldArray for dynamic skills
+- watch for conditional fields (e.g., LinkedIn → show extra fields)
+- Controller for custom inputs (file, select)
+- Advanced validation with Zod/Yup
+- Integration with React Hook Form Devtools
+
+---
+
+## 🔗 Advanced: Nested Data Structures
+
+Example of handling deeply nested objects such as Work Experience:
+
+```ts
+interface CompanyAddress {
+  street: string;
+  city: string;
+  country: string;
+}
+
+interface WorkExperience {
+  jobTitle: string;
+  company: {
+    name: string;
+    address: CompanyAddress;
+  };
+  startDate: string;
+  endDate?: string;
+}
+
+interface AdvancedProfile {
+  // ...other defined fields...
+  workExperience: WorkExperience[];
+}
+```
+
+---
+
+## 🛠️ Tech Stack
+- ⚛️ React + Vite
+- 📦 TanStack Form
+- ✅ Zod

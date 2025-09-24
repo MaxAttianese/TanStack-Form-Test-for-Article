@@ -1,5 +1,5 @@
-import { FormsLink } from "../../components/formsLink";
-import { PageLayout } from "../../components/pageLayout";
+import { FormsLink } from "../components/form-links";
+import { PageLayout } from "../components/page-layout";
 
 export function Homepage() {
   return (

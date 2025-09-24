@@ -1,11 +1,11 @@
-import { useFieldContext } from "..";
-import { FieldErrors } from "../fieldErrors";
+import { useFieldContext } from ".";
+import { FieldErrors } from "./field-errors";
 
-type FieldTextProps = {
+type FieldNumberProps = {
   label: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const FieldText = ({ label, ...inputProps }: FieldTextProps) => {
+export const FieldNumber = ({ label, ...inputProps }: FieldNumberProps) => {
   const field = useFieldContext<string>();
 
   return (
@@ -21,16 +21,16 @@ export const FieldText = ({ label, ...inputProps }: FieldTextProps) => {
       <input
         id={field.name}
         name={field.name}
+        type="number"
         className={`${
           (field.form.state.isSubmitted || field.state.meta.isTouched) &&
           field.state.meta.errors.length > 0
             ? "error"
             : ""
         }`}
-        value={field.state.value ?? ""}
+        value={field.state.value}
         onBlur={field.handleBlur}
         onChange={(e) => field.handleChange(e.target.value)}
-        autoComplete=""
         {...inputProps}
       />
     </div>
